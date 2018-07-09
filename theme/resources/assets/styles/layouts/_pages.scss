@@ -1,8 +1,3 @@
-section {
-  font-size: 2em;
-  line-height: 1.2;
-}
-
 .grid {
   display: grid;
   grid-template-columns: 1fr minmax(auto, 1120px) 1fr;
@@ -10,6 +5,8 @@ section {
   padding: 2em 0;
 }
 
-.grid-col2 {
+.content-wrap {
   grid-column: 2;
+  font-size: 2em;
+  line-height: 1.2;
 }
