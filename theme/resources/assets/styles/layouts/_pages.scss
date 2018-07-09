@@ -1,0 +1,15 @@
+section {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1120px) 1fr;
+  grid-gap: 1em;
+  padding: 2em 0;
+}
+
+.grid-col2 {
+  grid-column: 2;
+}
