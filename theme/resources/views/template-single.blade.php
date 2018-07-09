@@ -6,7 +6,7 @@
 
 @section('content')
   @while(have_posts()) @php the_post() @endphp
-    <div class="grid-col2">
+    <div class="content-wrap">
     @include('partials.content-page')
     </div>
   @endwhile

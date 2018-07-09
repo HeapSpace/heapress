@@ -1,15 +1,11 @@
 <footer class="content-info grid bg-@php echo get_theme_mod('footer_color', 'black'); @endphp">
-  <div class="container grid-col2">
+  <div class="container content-wrap">
     @php
-// query for the page using either (not both!) one of the two following lines
-$bottom_page_query = new WP_Query('pagename=' . get_theme_mod('footer_slug', '_footer'));
 
-// loop through the query (even though it's just one page)
+$bottom_page_query = new WP_Query('pagename=' . get_theme_mod('footer_slug', '_footer'));
 while ($bottom_page_query->have_posts()) : $bottom_page_query->the_post();
   the_content();
 endwhile;
-
-// reset post data (important, don't leave out!)
 wp_reset_postdata();
 
     @endphp
