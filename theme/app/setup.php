@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Roots\Sage\Container;
 use Roots\Sage\Assets\JsonManifest;
+use Roots\Sage\Container;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
 
@@ -40,7 +40,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
     ]);
 
     /**
@@ -76,15 +76,15 @@ add_action('widgets_init', function () {
         'before_widget' => '<section class="widget %1$s %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h3>',
-        'after_title'   => '</h3>'
+        'after_title'   => '</h3>',
     ];
     register_sidebar([
-        'name'          => __('Primary', 'sage'),
-        'id'            => 'sidebar-primary'
+        'name' => __('Primary', 'sage'),
+        'id'   => 'sidebar-primary',
     ] + $config);
     register_sidebar([
-        'name'          => __('Footer', 'sage'),
-        'id'            => 'sidebar-footer'
+        'name' => __('Footer', 'sage'),
+        'id'   => 'sidebar-footer',
     ] + $config);
 });
 
@@ -127,37 +127,44 @@ add_action('after_setup_theme', function () {
     });
 });
 
-
 //------------------------------------------------------------------------------------------------- igr
 
 // SHORTCUT: section
 
-function section_func($atts,  $content = "") {
+function section_func($atts, $content = "")
+{
     extract(shortcode_atts(array(
-        'color'    => 'red'
-      ), $atts));
+        'color' => 'red',
+        'page'  => '',
+    ), $atts));
 
-    return '<section class="grid bg-' . $color . '"><div class="grid-col2">' . $content . '</div></section>';
+    if (!empty($page)) {
+        $content = get_page_by_path(get_theme_mod($page), OBJECT)->post_content;
+    }
+    return '<section class="grid bg-' . $color . '"><div class="content-wrap">' . $content . '</div></section>';
 }
-add_shortcode('hs-section',  __NAMESPACE__ . '\\section_func');
+add_shortcode('hs-section', __NAMESPACE__ . '\\section_func');
 
 // BUTTON
 
-function register_button( $buttons ) {
-   array_push($buttons, "|", "hssection");
-   return $buttons;
+function register_button($buttons)
+{
+    array_push($buttons, "|", "hssection");
+    return $buttons;
 }
-function add_plugin($plugin_array) {
-   $plugin_array['hssection'] = get_template_directory_uri() . '/assets/scripts/section-button.js';
-   return $plugin_array;
+function add_plugin($plugin_array)
+{
+    $plugin_array['hssection'] = get_template_directory_uri() . '/assets/scripts/section-button.js';
+    return $plugin_array;
 }
-function my_recent_posts_button() {
-   if (!current_user_can('edit_posts') && ! current_user_can('edit_pages')) {
-      return;
-   }
-   if (get_user_option('rich_editing') == 'true') {
-      add_filter('mce_external_plugins', __NAMESPACE__ . '\\add_plugin');
-      add_filter('mce_buttons', __NAMESPACE__ . '\\register_button');
-   }
+function my_recent_posts_button()
+{
+    if (!current_user_can('edit_posts') && !current_user_can('edit_pages')) {
+        return;
+    }
+    if (get_user_option('rich_editing') == 'true') {
+        add_filter('mce_external_plugins', __NAMESPACE__ . '\\add_plugin');
+        add_filter('mce_buttons', __NAMESPACE__ . '\\register_button');
+    }
 }
 add_action('init', __NAMESPACE__ . '\\my_recent_posts_button');
