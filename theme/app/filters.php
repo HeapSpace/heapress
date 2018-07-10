@@ -38,9 +38,9 @@ add_filter('excerpt_more', function () {
  */
 collect([
     'index', '404', 'archive', 'author', 'category', 'tag', 'taxonomy', 'date', 'home',
-    'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment'
+    'frontpage', 'page', 'paged', 'search', 'single', 'singular', 'attachment',
 ])->map(function ($type) {
-    add_filter("{$type}_template_hierarchy", __NAMESPACE__.'\\filter_templates');
+    add_filter("{$type}_template_hierarchy", __NAMESPACE__ . '\\filter_templates');
 });
 
 /**
@@ -52,7 +52,7 @@ add_filter('template_include', function ($template) {
     }, []);
     if ($template) {
         echo template($template, $data);
-        return get_stylesheet_directory().'/index.php';
+        return get_stylesheet_directory() . '/index.php';
     }
     return $template;
 }, PHP_INT_MAX);
@@ -69,17 +69,38 @@ add_filter('comments_template', function ($comments_template) {
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
 
-
-add_filter("mce_buttons_3", function ($buttons) {
+/**
+ * Add custom buttons in a second row.
+ */
+add_filter("mce_buttons_2", function ($buttons) {
 //    $buttons[] = 'fontselect';
-//    $buttons[] = 'fontsizeselect';
-    $buttons[] = 'styleselect';
-    $buttons[] = 'backcolor';
-    $buttons[] = 'cut';
-    $buttons[] = 'copy';
-    $buttons[] = 'charmap';
-    $buttons[] = 'hr';
-    $buttons[] = 'visualaid';
+    //    $buttons[] = 'fontsizeselect';
+    //    array_unshift($buttons, 'visualaid');
+    //    array_unshift($buttons, 'hr');
+    //    array_unshift($buttons, 'charmap');
+    array_unshift($buttons, 'cut');
+    array_unshift($buttons, 'copy');
+    array_unshift($buttons, 'backcolor');
+    array_unshift($buttons, 'styleselect');
 
     return $buttons;
+});
+
+/**
+ * Force the kitchen sink to always be on.
+ * Add HS styles.
+ */
+add_filter('tiny_mce_before_init', function ($args) {
+    $args['wordpress_adv_hidden'] = false;
+
+    $style_formats = array(
+        array(
+            'title'   => 'Big Link',
+            'classes' => 'btn',
+            'wrapper' => false,
+        ),
+    );
+    $args['style_formats'] = json_encode($style_formats);
+
+    return $args;
 });
