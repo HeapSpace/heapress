@@ -10,6 +10,6 @@ wp_reset_postdata();
 
     @endphp
     @php dynamic_sidebar('sidebar-footer') @endphp
-    @php echo get_theme_mod('footer_text'); @endphp
+    <div id="footer">@php echo get_theme_mod('footer_text'); @endphp</div>
   </div>
 </footer>

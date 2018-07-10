@@ -96,8 +96,8 @@ add_filter('tiny_mce_before_init', function ($args) {
     $style_formats = array(
         array(
             'title'   => 'Big Link',
+            'selector' => 'a',
             'classes' => 'btn',
-            'wrapper' => false,
         ),
     );
     $args['style_formats'] = json_encode($style_formats);
