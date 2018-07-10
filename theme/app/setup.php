@@ -139,7 +139,8 @@ function section_func($atts, $content = "")
     ), $atts));
 
     if (!empty($page)) {
-        $content = get_page_by_path(get_theme_mod($page), OBJECT)->post_content;
+        $content = get_page_by_path($page, OBJECT)->post_content;
+        $content = apply_filters('the_content', $content);
     }
     return '<section class="grid bg-' . $color . '"><div class="content-wrap">' . $content . '</div></section>';
 }

@@ -1,4 +1,4 @@
-<header class="banner bg-@php echo get_theme_mod('header_color', 'red'); @endphp">
+<header class="banner">
   <div class="container">
     <a class="brand" href="{{ home_url('/') }}"></a>
     <nav class="nav-primary">

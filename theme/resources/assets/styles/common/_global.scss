@@ -134,3 +134,24 @@ hr {
   height: 1px;
   margin-bottom: 1.5em;
 }
+
+/** Alignments */
+
+.align-left {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.align-right {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.align-center {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

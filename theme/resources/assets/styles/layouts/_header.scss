@@ -1,2 +1,59 @@
 // TODO: .banner .nav li {}
 // TODO: .banner .nav a {}
+
+header {
+  font-size: 1.2em;
+  position: fixed;
+  line-height: 1.2em;
+  top: 100px;
+  left: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.brand {
+  display: inline-block;
+  background: url(../images/hs.png);
+  width: 80px;
+  height: 70px;
+}
+
+nav.nav-primary {
+  width: 100%;
+  margin-left: 80px;
+  display: flex;
+  align-items: center;
+  -ms-transform-origin: bottom left;
+  transform-origin: bottom left;
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+
+  ul {
+    border-left: 2px solid $color-hs-white;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    z-index: 99999;
+    overflow: hidden;
+    line-height: 40px;
+    margin-left: 20px;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    float: left;
+    margin-left: 1.2em;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    text-transform: lowercase;
+    color: $color-hs-white;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
