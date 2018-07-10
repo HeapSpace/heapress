@@ -71,6 +71,10 @@ html {
 .bg-white {
   background-color: $color-hs-white;
   color: $color-hs-black;
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 15;
+  pointer-events: none;
 }
 
 /** TEXT */
