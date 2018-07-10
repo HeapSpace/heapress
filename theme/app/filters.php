@@ -68,3 +68,18 @@ add_filter('comments_template', function ($comments_template) {
     );
     return template_path(locate_template(["views/{$comments_template}", $comments_template]) ?: $comments_template);
 }, 100);
+
+
+add_filter("mce_buttons_3", function ($buttons) {
+//    $buttons[] = 'fontselect';
+//    $buttons[] = 'fontsizeselect';
+    $buttons[] = 'styleselect';
+    $buttons[] = 'backcolor';
+    $buttons[] = 'cut';
+    $buttons[] = 'copy';
+    $buttons[] = 'charmap';
+    $buttons[] = 'hr';
+    $buttons[] = 'visualaid';
+
+    return $buttons;
+});
