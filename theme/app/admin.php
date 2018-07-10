@@ -95,60 +95,29 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize) 
     // SOCIAL
 
     $wp_customize->add_section(
-        'social',
+        'text',
         array(
-            'title'       => 'Social',
-            'description' => 'Manage the social accounts.',
+            'title'       => 'Texts',
+            'description' => 'Manage texts',
             'priority'    => 140,
         )
     );
 
     $wp_customize->add_setting(
-        'twitter',
+        'footer_text',
         array(
             'default'           => '',
             'sanitize_callback' => 'sanitize_text_field',
         )
     );
     $wp_customize->add_control(
-        'twitter',
+        'footer_text',
         array(
-            'label'    => 'Twitter',
-            'section'  => 'social',
-            'settings' => 'twitter',
+            'label'    => 'Footer text',
+            'section'  => 'text',
+            'settings' => 'footer_text',
         )
     );
-    $wp_customize->add_setting(
-        'facebook',
-        array(
-            'default'           => '',
-            'sanitize_callback' => 'sanitize_text_field',
-        )
-    );
-    $wp_customize->add_control(
-        'facebook',
-        array(
-            'label'    => 'Facebook',
-            'section'  => 'social',
-            'settings' => 'facebook',
-        )
-    );
-    $wp_customize->add_setting(
-        'linkedin',
-        array(
-            'default'           => '',
-            'sanitize_callback' => 'sanitize_text_field',
-        )
-    );
-    $wp_customize->add_control(
-        'linkedin',
-        array(
-            'label'    => 'LinkedIn',
-            'section'  => 'social',
-            'settings' => 'linkedin',
-        )
-    );
-
 });
 
 /**
