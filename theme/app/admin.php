@@ -79,20 +79,41 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize) 
         )
     );
     $wp_customize->add_control(new \WP_Customize_Control(
-        $wp_customize, //Pass the $wp_customize object (required)
-        'footer_color', //Set a unique ID for the control
+        $wp_customize,
+        'footer_color',
         array(
-            'label'       => __('Footer color name', 'footer_color'), //Admin-visible name of the control
+            'label'       => __('Footer color name', 'footer_color'),
             'description' => __('Footer color'),
-            'settings'    => 'footer_color', //Which setting to load and manipulate (serialized is okay)
-            'priority'    => 30, //Determines the order this control appears in for the specified section
-            'section'     => 'content', //ID of the section this control should render in (can be one of yours, or a WordPress default section)
+            'settings'    => 'footer_color',
+            'priority'    => 30,
+            'section'     => 'content',
             'type'        => 'select',
             'choices'     => $hs_colors,
         )
     ));
 
-    // SOCIAL
+    $wp_customize->add_setting('header_color',
+        array(
+            'default'    => 'red',
+            'type'       => 'theme_mod',
+            'capability' => 'edit_theme_options',
+        )
+    );
+    $wp_customize->add_control(new \WP_Customize_Control(
+        $wp_customize,
+        'header_color',
+        array(
+            'label'       => __('Header color name', 'header_color'),
+            'description' => __('Header color'),
+            'settings'    => 'header_color',
+            'priority'    => 30,
+            'section'     => 'content',
+            'type'        => 'select',
+            'choices'     => $hs_colors,
+        )
+    ));
+
+    // TEXT
 
     $wp_customize->add_section(
         'text',
