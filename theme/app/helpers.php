@@ -146,8 +146,10 @@ function display_sidebar()
 
 function get_page_color() {
     $mykey_values = get_post_custom_values('page-color');
-    foreach ($mykey_values as $key => $value) {
-        return $value;
+    if (!empty($mykey_values)) {
+        foreach ($mykey_values as $key => $value) {
+            return $value;
+        }
     }
     return get_theme_mod('primary_color', 'red');
 }

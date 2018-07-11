@@ -181,12 +181,13 @@ add_shortcode('hs-col-3-23', function($atts, $content = "") {
 
 function register_button($buttons)
 {
-    array_push($buttons, "|", "hssection");
+    array_push($buttons, "|", "hssection", "hscolumn");
     return $buttons;
 }
 function add_plugin($plugin_array)
 {
-    $plugin_array['hssection'] = get_template_directory_uri() . '/assets/scripts/section-button.js';
+    $plugin_array['hssection'] = get_template_directory_uri() . '/assets/scripts/button-section.js';
+    $plugin_array['hscolumn'] = get_template_directory_uri() . '/assets/scripts/button-column.js';
     return $plugin_array;
 }
 function my_recent_posts_button()

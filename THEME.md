@@ -7,7 +7,7 @@
 + Glavni meni je uvek okrenut za 90 stepeni i nalazi se levo.
 + Tipografija je suštinski deo dizajna.
 
-Da bi se tema upotrebljavala na drugim sajtovima, a da oni ne budu "slepa kopija" glavnog HS sajta, napravljena je da bude _slobodna_: moguće je napraviti dosta izmena, ali to iziskuje izvesno upoznavanje s temom, i smanjuje broj parametara za konfiguraciju. Tako, na primer, tema nema podešavanja za linkove ka socijalnim mrežama, to se piše ručno, jer se ostavlja mogućnost da se to napravi na bilo koji način. Slično, ne definiše sadržaj footera.
+Da bi se tema upotrebljavala na drugim sajtovima, a da oni ne budu "slepa kopija" glavnog HS sajta, napravljena je da bude SLOBODNA_: moguće je napraviti dosta izmena, ali to iziskuje izvesno upoznavanje s temom, a smanjuje broj parametara za konfiguraciju. Tako, na primer, tema nema podešavanja za linkove ka socijalnim mrežama, to se piše ručno, jer se ostavlja mogućnost da se to napravi na bilo koji način. Slično, ne definiše se sadržaj footera, već se i on ručno piše.
 
 ## Sekcije
 
@@ -29,11 +29,15 @@ Postoji opcija da se dovuče sekcija sa neke druge strane. Za to služi atribut 
 
 Sadržaj je sada definisan na drugoj strani, čiji je slug: `_neki_slug`. Preporuka je da ta strana bude privatna.
 
-## Vrste template
+## Vrste šablona za stranice
 
 + `Default` template podrazumeva da se koriste sekcije.
 + `Single Section` template podrazumeva da se koristi jedna sekcija i ne treba ih definisati u editoru. Ima sledeći page atribute:
 ++ `page_color` - boja stranice, inače definisana u podešavanjima teme.
+
+## Partials
+
+Sadržaj se može ubacivati i kao partials, pa se preporučuje da se oni imenuju sa `_` prefiksom i da budu privatne strane.
 
 ## Podešavanja teme
 

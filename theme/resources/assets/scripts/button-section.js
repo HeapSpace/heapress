@@ -6,7 +6,7 @@
                 page: '',
             }
             ed.addButton('hssection', {
-                title: 'HS section',
+                title: 'HS Section',
                 image: url + '/section.png',
                 onclick: function() {
                     ed.windowManager.open({
@@ -62,7 +62,7 @@
                                 value: 'black',
                                 text: 'Black'
                             }],
-                            onchange: function() {
+                            onselect: function() {
                                 data.color = this.value();
                             }
                         }],
