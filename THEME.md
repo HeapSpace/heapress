@@ -49,3 +49,11 @@ Postoje posebni stilovi za različite elementa:
 + `BigLink` - stil koji se dodaje obično na linkove, da bi bio veći (kao neki call-to-action).
 
 Svi HS stilovi u editoru imaju žutu pozadinu, da bi bilo jasnije da su izmenjeni.
+
+## Šta se može dodati?
+
+Ukoliko treba, tema se može relativno lako dopuniti. Sledi spisak elemenata teme koji se mogu dopuniti, sa relativnom težinom izvedbe (`1` - lako, `3` - treba više vremena).
+
++ novi stil u editoru (`1`)
++ nova HS boja (tj. kombinacija) (`1`)
++ novi meni (`2`)
