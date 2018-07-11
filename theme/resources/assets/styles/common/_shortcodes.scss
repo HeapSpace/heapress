@@ -1,0 +1,59 @@
+.btn {
+  display: inline-block;
+  background: transparent;
+  font-size: 1.4em;
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+h2.big {
+  font-size: 5em;
+  margin-bottom: 0;
+}
+
+h2.superbig {
+  font-size: 16em;
+  margin-bottom: 0;
+  line-height: 0.7em;
+}
+
+.column {
+  float: left;
+}
+
+.column.column-2 {
+  width: 50%;
+}
+
+.column.column-3 {
+  width: 33.3%;
+}
+
+.column.column-3-1 {
+  width: 33.3%;
+}
+
+.column.column-3-23 {
+  width: 66.6%;
+}
+
+.clear_column {
+  clear: both;
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Maximum width of 600 pixels. */
+@media screen and (max-width: 600px) {
+  .column {
+    clear: both;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+}

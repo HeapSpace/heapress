@@ -132,8 +132,7 @@ add_action('after_setup_theme', function () {
 
 // SHORTCUT: section
 
-function section_func($atts, $content = "")
-{
+add_shortcode('hs-section', function($atts, $content = "") {
     extract(shortcode_atts(array(
         'color' => 'red',
         'page'  => '',
@@ -144,8 +143,39 @@ function section_func($atts, $content = "")
         $content = apply_filters('the_content', $content);
     }
     return '<section class="grid bg-' . $color . '"><div class="content-wrap">' . $content . '</div></section>';
+});
+
+// SHORTCUT: columns
+
+function insertColumn($columnsNo, $isLast, $content) {
+    $content = '<div class="column column-' . $columnsNo . '">' . $content . '</div>';
+
+    if (false !== $isLast) {
+        $content .= "<div class='clear_column'></div>";
+    }
+
+    return $content;
 }
-add_shortcode('hs-section', __NAMESPACE__ . '\\section_func');
+
+add_shortcode('hs-col-2', function($atts, $content = "") {
+    return insertColumn('2', false, $content);
+});
+add_shortcode('hs-col-2-last', function($atts, $content = "") {
+    return insertColumn('2', true, $content);
+});
+add_shortcode('hs-col-3', function($atts, $content = "") {
+    return insertColumn('3', false, $content);
+});
+add_shortcode('hs-col-3-last', function($atts, $content = "") {
+    return insertColumn('3', true, $content);
+});
+add_shortcode('hs-col-3-1', function($atts, $content = "") {
+    return insertColumn('3-1', false, $content);
+});
+add_shortcode('hs-col-3-23', function($atts, $content = "") {
+    return insertColumn('3-23', true, $content);
+});
+
 
 // BUTTON
 

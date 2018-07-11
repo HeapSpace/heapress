@@ -140,3 +140,14 @@ function display_sidebar()
     isset($display) || $display = apply_filters('sage/display_sidebar', false);
     return $display;
 }
+
+
+//-------------------------------------------------------------------------------------------------
+
+function get_page_color() {
+    $mykey_values = get_post_custom_values('page-color');
+    foreach ($mykey_values as $key => $value) {
+        return $value;
+    }
+    return get_theme_mod('primary_color', 'red');
+}

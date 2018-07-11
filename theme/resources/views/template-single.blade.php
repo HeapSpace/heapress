@@ -12,4 +12,4 @@
   @endwhile
 @endsection
 
-@section('mainclass', 'grid bg-' . get_theme_mod('primary_color', 'red'))
+@section('mainclass', 'grid bg-' . App\get_page_color())

@@ -99,8 +99,26 @@ add_filter('tiny_mce_before_init', function ($args) {
             'selector' => 'a',
             'classes' => 'btn',
         ),
+        array(
+            'title'   => 'Big H2',
+            'selector' => 'h2',
+            'classes' => 'big',
+        ),
+        array(
+            'title'   => 'Super Big H2',
+            'selector' => 'h2',
+            'classes' => 'superbig',
+        ),
     );
+
     $args['style_formats'] = json_encode($style_formats);
 
     return $args;
 });
+
+/**
+ * Try to fix shortocode WP-auto Ps.
+ */
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop', 99 );
+add_filter( 'the_content', 'shortcode_unautop', 100 );
