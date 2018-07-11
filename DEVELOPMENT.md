@@ -39,4 +39,13 @@ Colors are defined at several places:
 
 Menus are added in `app/setup.php`. Search for: `register_nav_menus`.
 
-###
+### Custom editor styles
+
++ `app/filters.php` - list of classes for the editor.
++ `_shortcodes.scss` - class definitions.
++ `_tinymce.scss` - special styles for the editor.
+
+### Shortcodes
+
++ `app/setup.php`
++ `_shortcodes.scss` - shortcode styles
