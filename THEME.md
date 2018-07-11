@@ -34,7 +34,7 @@ Sadržaj je sada definisan na drugoj strani, čiji je slug: `_neki_slug`. Prepor
 
 + `Default` template podrazumeva da se koriste sekcije.
 + `Single Section` template podrazumeva da se koristi jedna sekcija i ne treba ih definisati u editoru. Ima sledeći page atribute:
-++ `page_color` - boja stranice, inače definisana u podešavanjima teme.
+  + `page_color` - boja stranice, inače definisana u podešavanjima teme.
 
 ## Kolone
 
